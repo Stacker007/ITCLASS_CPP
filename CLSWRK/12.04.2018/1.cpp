@@ -11,26 +11,33 @@
 using namespace std;
 
 struct Rectangle{
-	int A;
-	int B;
-	int Perimeter (){
-	return((A+B)*2);
-}
-};
-//int Perimeter(struct Rectangle*);
+	private:
+		int A;
+		int B;
+	public:
+		void SetA(int A){
+			this->A=A;
+		}
+		void SetB(int B){
+			this->B=B;
+		}
+		int Perimeter (){
+			return((this->A+this->B)*2);
+		}
+}; 
+
 int main(void)
 {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	struct Rectangle R1;
+	int a,b;
 	puts("Ââåäèòå ðàçìåðû ñòîðîí ïðÿìîóãîëüíèêà");
-	scanf("%d%d", &R1.A, &R1.B);
-	//int P;
-	//P=Perimeter (&R1);
+	scanf("%d%d", &a, &b);
+	R1.SetA(a);
+	R1.SetB(b);
 	printf("Ïåðèìåòð ðàâåí %d\n", R1.Perimeter());
-	getch();
-	
-	
+	getch();	
 	return(0);
 }
 
