@@ -70,6 +70,18 @@ int main(void)
 	Human H2;
 	
 	H2.Info();
+	char*Name = new char[256];
+	int Year;
+	double Salary;	
+	cout<< "Ââåäèòå èìÿ "<< endl;	
+	cin.getline(Name, 256 );
+	cout<< "Ââåäèòå ãîä "<< endl;
+	cin >> Year;
+	cout<< "Ââåäèòå çï "<< endl;
+	cin >> Salary;
+	
+	Human H3 (Name, Year, Salary);
+	H3.Info();
 	
 	return(0);
 }
