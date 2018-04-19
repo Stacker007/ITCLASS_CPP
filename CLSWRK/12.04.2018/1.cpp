@@ -24,6 +24,12 @@ struct Rectangle{
 		int Perimeter (){
 			return((this->A+this->B)*2);
 		}
+		int GetA (){
+			return this->A;
+		}
+		int GetB (){
+			return this->B;
+		}
 }; 
 
 int main(void)
@@ -36,7 +42,7 @@ int main(void)
 	scanf("%d%d", &a, &b);
 	R1.SetA(a);
 	R1.SetB(b);
-	printf("Ïåðèìåòð ðàâåí %d\n", R1.Perimeter());
+	printf("Ïåðèìåòð ðàâåí %d\n Ñòîðîíû: %d, %d", R1.Perimeter(), R1.GetA(), R1.GetB());
 	getch();	
 	return(0);
 }
