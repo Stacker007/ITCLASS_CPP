@@ -6,6 +6,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <time.h>
+#include <iostream>
 
 
 using namespace std;
@@ -31,9 +32,32 @@ class Human {
 		}
 		void SetName(char*Name){
 			delete [] this->Name;
+			this->Name = new char [strlen(Name)+1];
+			strcpy(this->Name, Name);
 		}
-	
-	
+		char* GetName(){
+			return this->Name;
+		}
+		void SetAge(int Age){
+			this->Age = Age;
+		}
+		int GetAge(){
+			return this->Age;
+		}
+		void SetSalary(double Salary){
+			this->Salary = Salary;
+		}
+		double GetSalary(){
+			return this->Salary;
+		}
+		void Info(){
+			cout << "Èìÿ "<< this->Name<< " Ã.Ð. "<< this-> Age<< " Ç.Ï. " << this-> Salary<< endl;
+			
+		}
+		~Human(){
+			cout<< "Ðàáîòàåò äåñòðóêòîð"<< endl;
+			delete [] this-> Name;
+		}
 };
 
 
@@ -41,14 +65,12 @@ int main(void)
 {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	struct Rectangle R1;
-	int a,b;
-	puts("Ââåäèòå ðàçìåðû ñòîðîí ïðÿìîóãîëüíèêà");
-	scanf("%d%d", &a, &b);
-	R1.SetA(a);
-	R1.SetB(b);
-	printf("Ïåðèìåòð ðàâåí %d\n", R1.Perimeter());
-	getch();	
+	Human H1 ("Ïåòð", 1990, 1588);
+	H1.Info();
+	Human H2;
+	
+	H2.Info();
+	
 	return(0);
 }
 
