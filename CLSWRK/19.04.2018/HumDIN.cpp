@@ -51,7 +51,7 @@ class Human {
 			return this->Salary;
 		}
 		void Info(){
-			cout << "Èìÿ "<< this->Name<< " Ã.Ð. "<< this-> Age<< " Ç.Ï. " << this-> Salary<< endl;
+			cout << "Èìÿ "<< this->Name << " Ã.Ð. "<< this-> Age<< " Ç.Ï. " << this-> Salary<< endl;
 			
 		}
 		~Human(){
@@ -65,26 +65,33 @@ int main(void)
 {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	Human*H1;
-	H1 = new Human("Grigory", 1990, 1100);
-	H1->Info();
-	delete H1;
-	Human *H2;
-	H2 = new Human ();
-	H2-> Info();
-	delete H2;
-	char*Name = new char[256];
-	int Year;
-	double Salary;	
-	cout<< "Ââåäèòå èìÿ "<< endl;	
-	cin.getline(Name, 256 );
-	cout<< "Ââåäèòå ãîä "<< endl;
-	cin >> Year;
-	cout<< "Ââåäèòå çï "<< endl;
-	cin >> Salary;
-	Human * H3 = new Human(Name, Year, Salary);
-	H3-> Info();
-	delete H3;
+	Human **H;
+	int n;
+	cout << "Ââåäèòå êîëè÷åñòâî ëþäåé" << endl;
+	cin >> n;
+	while (n<1||n>10){
+		cout << "Îøèáêà ââîäà"<< endl;
+		cin >> n;
+	}
+	H= new Human*[n];
+	
+	
+	for (int i; i<n; i++){
+		cout << "Ââåäèòå èíôî î "<< i+1 << " ÷åëîâåêå"<< endl;
+		cout<< "Ââåäèòå èìÿ "<< endl;	
+		while (cin.get()!='\n') ;
+		//cin.get();
+		char*Name = new char[256];
+		cin.getline(Name, 256 );
+		cout<< "Ââåäèòå ãîä "<< endl;
+		int Year;
+		cin >> Year;
+		cout<< "Ââåäèòå çï "<< endl;
+		double Salary;
+		cin >> Salary;
+		H[i] = new Human(Name, Year, Salary);
+		H[i]->Info();
+	}
 	
 	return(0);
 }
