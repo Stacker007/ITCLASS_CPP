@@ -8,20 +8,17 @@ class Human {
 private:
 	string Name;
 	int Age;
-	double Salary;
 public:
-	Human(string Name, int Age, double Salary) {
+	Human(string Name, int Age ) {
 		this->Name = Name;
-		this->Salary = Salary;
+		
 		this->Age = Age;
-		cout << "Работает конструктор с параметрами" << endl;
-
+		cout << "Работает конструктор с параметрами класса человек" << endl;
 	}
 	Human() {
 		this->Name = "Иван";
 		this->Age = 1980;
-		this->Salary = 1000;
-		cout << "Работает конструктор без параметров" << endl;
+		cout << "Работает конструктор без параметров класса человек" << endl;
 	}
 	void SetName(string Name) {
 		this->Name = Name;
@@ -36,22 +33,40 @@ public:
 	int GetAge() {
 		return this->Age;
 	}
-	void SetSalary(double Salary) {
-		this->Salary = Salary;
-	}
-	double GetSalary() {
-		return this->Salary;
-	}
+	
 	void Info() {
-		cout << "Имя " << this->Name << " Г.Р. " << this->Age << " З.П. " << this->Salary << endl;
+		cout << "Имя " << this->Name << " Г.Р. " << this->Age <<  endl;
 
 	}
 	~Human() {
-		cout << "Работает деструктор" << endl;
-
+		cout << "Работает деструктор класса человек" << endl;
 	}
 };
-
+class Student :public Human {
+private:
+	double midMark;
+public:
+	Student(string Name, int Age, double sr) :Human (Name, Age) {
+		this->midMark = sr;
+		cout << "Работает конструктор с параметрами класса студент";
+	}
+	Student() :Human() {
+		this->midMark = 2;
+		cout << "Работает конструктор без параметров класса студент";
+	}
+	double GetMidMark(){
+		return this->midMark;
+	}
+	void SetMidMark(double midMark) {
+		this->midMark = midMark;
+	}
+	void InfoStudent() {
+		cout << "Имя " << this->GetName() << " Г.Р. " << this->GetAge << " Средний балл " << this->midMark;
+	}
+	~Student() {
+		cout << "Работает деструктор класса студент";
+	}
+};
 
 int main(void)
 {
@@ -81,7 +96,7 @@ int main(void)
 		cout << "Введите зп " << endl;
 		double Salary;
 		cin >> Salary;
-		H[i] = new Human(Name, Year, Salary);
+		H[i] = new Human(Name, Year);
 		H[i]->Info();
 	}
 
