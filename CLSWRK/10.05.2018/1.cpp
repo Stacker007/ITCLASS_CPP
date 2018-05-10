@@ -64,7 +64,8 @@ public:
 	PremiumClass() :Vehicle() {}
 
 	void UpdateModel() {
-		Vehicle::UpdateModel(5);
+		//Vehicle::UpdateModel(5);
+		this->SetMaxSpeed(this->GetMaxSpeed() + 5);
 	}
 	int Cost() {
 		return  GetMaxSpeed() * 250;
